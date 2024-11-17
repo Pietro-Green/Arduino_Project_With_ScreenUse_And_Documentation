@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Original: Maverick (nano pong) -> modified by Boniface into TicTacToe",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled1", "top": 100, "left": 20, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 80,
+      "left": 150,
+      "attrs": { "color": "green", "key": "ArrowUp" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 140,
+      "left": 150,
+      "attrs": { "color": "green", "key": "ArrowDown" }
+    }
+  ],
+  "connections": [
+    [ "nano:A4", "oled1:SDA", "gold", [ "v0" ] ],
+    [ "oled1:SCL", "nano:A5", "cyan", [ "v-20", "h20" ] ],
+    [ "oled1:VCC", "nano:3.3V", "red", [ "v-20", "h-40" ] ],
+    [ "oled1:GND", "nano:GND.1", "black", [ "v-15", "h-50", "v100", "h130", "v-120" ] ],
+    [ "btn1:2.l", "btn2:2.l", "black", [ "h-5", "v50" ] ],
+    [ "btn1:2.l", "nano:GND.1", "black", [ "h-5", "v-50", "h10" ] ],
+    [ "btn1:1.r", "nano:2", "black", [ "h-1", "v-100", "h-100" ] ],
+    [ "btn2:1.r", "nano:3", "black", [ "v-1", "h10", "v-170", "h-100" ] ]
+  ],
+  "dependencies": {}
+}
